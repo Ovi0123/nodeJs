@@ -24,15 +24,16 @@ pipeline {
         }
         stage('Test'){
             steps{
-                sh './test.sh'
+                sh "chmod +x -R ${env.WORKSPACE}"
+                sh './scripts/test.sh'
             }
         }
         stage('Deliver'){
             steps {
-                sh './deliver.sh'
+                sh "chmod +x -R ${env.WORKSPACE}"
+                sh './scripts/deliver.sh'
                 input message: 'Finished using the web site? (Click "Proceed" to continue)'
-                sh './kill.sh'
+                sh './scripts/kill.sh'
             }
         }
     }
-}
