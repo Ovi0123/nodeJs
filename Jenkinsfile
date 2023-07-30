@@ -13,7 +13,6 @@
 pipeline {
     // agent { dockerfile true}
     agent { dockerfile {
-        // args '-p 35974:8081'
         additionalBuildArgs '-t myjenkinsnewtag'
     }}
     environment{
@@ -23,25 +22,13 @@ pipeline {
         stage('Build') {
             steps {
                 sh 'node --version'
-                sh 'npm install'
-                // sh 'nodemon server.js'
-                // sh 'nohup node server.js &'
-                // sh 'node server.js' 
+                sh 'npm install' 
             }
         }
         stage('RunContainer'){
             steps{
-                // sh './scripts/test.sh'
                 sh 'docker run -d -p 35974:8081 myjenkinsnewtag'
             }
         }
-        // stage('Deliver'){
-        //     steps {
-        //         sh 'npm start &'
-        //         // sh './scripts/deliver.sh'
-        //         // input message: 'Finished using the web site? (Click "Proceed" to continue)'
-        //         // sh './scripts/kill.sh'
-        //     }
-        // }
     }
 }
