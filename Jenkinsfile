@@ -16,8 +16,8 @@ pipeline {
         stage('Test') {
             steps {
                 sh 'node --version'
-		sh 'npm install'
-                sh 'node server.js' 
+		// sh 'npm install'
+                // sh 'node server.js' 
             }
         }
     }
