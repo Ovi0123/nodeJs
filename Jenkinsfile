@@ -14,7 +14,7 @@ pipeline {
     // agent { dockerfile true}
     agent { dockerfile {
         args '-p 35974:8081'
-        args '-t FirstJenkinsContainer'
+        args '-t firstjenkinscontainer'
     }}
     environment{
         CI = 'true'
