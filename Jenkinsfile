@@ -12,8 +12,9 @@
 // }
 pipeline {
     // agent { dockerfile true}
+    // I can not able to run container without a tag that's why doing this way
     agent { dockerfile {
-        additionalBuildArgs '-t myjenkinsnewtag'
+        additionalBuildArgs '-t myjenkinsfirstnewtag'
     }}
     environment{
         CI = 'true'
@@ -27,7 +28,7 @@ pipeline {
         }
         stage('RunContainer'){
             steps{
-                sh 'docker run -d -p 35974:8081 myjenkinsnewtag'
+                sh 'docker run -d -p 35974:8081 myjenkinsfirstnewtag'
             }
         }
     }
