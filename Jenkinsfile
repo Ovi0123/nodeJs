@@ -14,6 +14,7 @@ pipeline {
     // agent { dockerfile true}
     agent { dockerfile {
         args '-p 35974:8081'
+        additionalBuildArgs '-t mytag'
     }}
     environment{
         CI = 'true'
