@@ -13,7 +13,7 @@
 pipeline {
     // agent { dockerfile true}
     agent { dockerfile {
-        args '-d -p 35974:8081'
+        args '-p 35974:8081'
     }}
     environment{
         CI = 'true'
