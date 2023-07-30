@@ -13,8 +13,8 @@
 pipeline {
     // agent { dockerfile true}
     agent { dockerfile {
-        args '-p 35974:8081'
-        additionalBuildArgs '-t mytag'
+        // args '-p 35974:8081'
+        additionalBuildArgs '-t myjenkinsnewtag'
     }}
     environment{
         CI = 'true'
@@ -29,12 +29,12 @@ pipeline {
                 // sh 'node server.js' 
             }
         }
-        // stage('Test'){
-        //     steps{
-        //         // sh './scripts/test.sh'
-        //         sh 'npm run build'
-        //     }
-        // }
+        stage('RunContainer'){
+            steps{
+                // sh './scripts/test.sh'
+                sh 'docker run -d -p 35974:8081 myjenkinsnewtag'
+            }
+        }
         // stage('Deliver'){
         //     steps {
         //         sh 'npm start &'
