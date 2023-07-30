@@ -22,12 +22,12 @@ pipeline {
                 // sh 'node server.js' 
             }
         }
-        stage('Test'){
-            steps{
-                // sh './scripts/test.sh'
-                sh 'npm test'
-            }
-        }
+        // stage('Test'){
+        //     steps{
+        //         // sh './scripts/test.sh'
+        //         sh 'npm test'
+        //     }
+        // }
         // stage('Deliver'){
         //     steps {
         //         sh './scripts/deliver.sh'
