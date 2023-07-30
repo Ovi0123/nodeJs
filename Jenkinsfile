@@ -13,14 +13,24 @@
 pipeline {
     agent { dockerfile true }
     stages {
-        stage('Test') {
+        stage('Build') {
             steps {
                 sh 'node --version'
-                // sh 'npm install'
+                sh 'npm install'
                 // sh 'nodemon server.js'
                 // sh 'nohup node server.js &'
                 // sh 'node server.js' 
             }
         }
+        stage('Test'){
+            steps{
+                sh './scripts/test.sh'
+            }
+        }
+        stage('Deliver'){
+            steps {
+                sh './scripts/deliver.sh'
+                input message: 'Finished using the web site? (Click "Proceed" to continue)'
+                sh './scripts/kill.sh' }
     }
 }
