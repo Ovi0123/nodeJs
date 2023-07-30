@@ -11,9 +11,10 @@
 //     }
 // }
 pipeline {
-    agent { dockerfile true{
-        args '-p 8000:8081'
-    } }
+    agent { dockerfile true}
+    environment{
+        CI = 'true'
+    }
     stages {
         stage('Build') {
             steps {
