@@ -17,7 +17,8 @@ pipeline {
             steps {
                 sh 'node --version'
                 sh 'npm install'
-                sh 'nohup node server.js &'
+                sh 'nodemon server.js'
+                // sh 'nohup node server.js &'
                 // sh 'node server.js' 
             }
         }
