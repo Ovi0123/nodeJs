@@ -25,19 +25,19 @@ pipeline {
                 // sh 'node server.js' 
             }
         }
-        stage('Test'){
-            steps{
-                // sh './scripts/test.sh'
-                sh 'npm run build'
-            }
-        }
-        stage('Deliver'){
-            steps {
-                sh 'npm start &'
-                // sh './scripts/deliver.sh'
-                // input message: 'Finished using the web site? (Click "Proceed" to continue)'
-                // sh './scripts/kill.sh'
-            }
-        }
+        // stage('Test'){
+        //     steps{
+        //         // sh './scripts/test.sh'
+        //         sh 'npm run build'
+        //     }
+        // }
+        // stage('Deliver'){
+        //     steps {
+        //         sh 'npm start &'
+        //         // sh './scripts/deliver.sh'
+        //         // input message: 'Finished using the web site? (Click "Proceed" to continue)'
+        //         // sh './scripts/kill.sh'
+        //     }
+        // }
     }
 }
